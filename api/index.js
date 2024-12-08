@@ -8,7 +8,7 @@ const PORT = process.env.PORT;
 const mongoose = require("mongoose");
 
 //connect db
-mongoose.connect('mongodb+srv://dbHadorer:$PHANhieu666@cluster0.mongodb.net/react.node-app').then(()=>console.log("db connected")).then((err)=>{
+mongoose.connect(process.env.MONGOOSEDB_RUL).then(()=>console.log("db connected")).then((err)=>{
     err;
 })
 
@@ -33,7 +33,7 @@ app.listen(PORT, () => {
 
 //hieunhather
 //LIfnjCc1dYim9oqt
-//mongodb+svr://hieunhather:LIfnjCc1dYim9oqt@cluster0.mongodb.net/react.node-app
+//mongodb+srv://hieunhather:LIfnjCc1dYim9oqt@cluster0.ir6vb.mongodb.net/reactnnocde-app
 
 
 
