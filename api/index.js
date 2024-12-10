@@ -13,6 +13,9 @@ mongoose.connect(process.env.MONGOOSEDB_RUL).then(()=>console.log("db connected"
 })
 
 
+const databaseSeeder = require('./databaseSeeder');
+//database seeder routes
+app.use('/api/seed', databaseSeeder);
 
 
 

@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-const reviewSchema = mongoose.Schema(
-    {
-        name: {type: String, required: true},
-        rating: {type: Number, required: true},
-        comments: {type: String, required: true},
-        user: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
-    }
-)
+// const reviewSchema = mongoose.Schema(
+//     {
+//         name: {type: String, required: true},
+//         rating: {type: Number, required: true},
+//         comments: {type: String, required: true},
+//         user: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
+//     }
+// )
 
 const productSchema = mongoose.Schema(
     {
@@ -19,7 +19,7 @@ const productSchema = mongoose.Schema(
         pride: {type: Number, required: true, default: 0},
         countInStock: {type: Number, required: true, default: 0},
         
-        reviews: [reviewSchema]
+        // reviews: [reviewSchema]
     }
 )
 
