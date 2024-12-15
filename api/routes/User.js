@@ -2,6 +2,9 @@ const express = require('express');
 const userRoute = express.Router();
 const AsynHandler = require("express-async-handler");
 const User = require("../models/User");
+const genarateToken = require("../tokenGenerate");
+const protect = require("../middleware/Auth");
+
 
 userRoute.post('/login', AsynHandler(async (req, res) => {
     const {email, password} = req.body;
@@ -12,7 +15,7 @@ userRoute.post('/login', AsynHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: null,
+            token: generateToken(user._id),
             createdAt: user.createdAt,
         })
     }
@@ -48,7 +51,25 @@ userRoute.post('/', AsynHandler(async(req, res)=>{
     }
 }))
 
+//profile data
+userRoute.get("/profile", protect, AsynHandler(async(req, res)=>{
+    const user = await User.findById(req.user._id);
+    if (user) {
+        res.json({ 
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            createdAt: user.createdAt,
 
+        })
+
+    }
+    else {
+        res.status(404);
+        throw new Error("User not found")
+    }
+}))
 
 
 
