@@ -2,7 +2,7 @@ const express = require('express');
 const userRoute = express.Router();
 const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
-const genarateToken = require("../tokenGenerate");
+const generateToken = require("../tokenGenerate");
 const protect = require("../middleware/Auth");
 
 
