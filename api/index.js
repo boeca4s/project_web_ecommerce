@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGOOSEDB_RUL).then(()=>console.log("db connected"
 
 const databaseSeeder = require('./databaseSeeder');
 const userRoute = require('./routes/User');
+const productRoute = require("./routes/Product");
 
 app.use(express.json());
 
@@ -24,6 +25,9 @@ app.use('/api/seed', databaseSeeder);
 //routes for users
 //api/users/login
 app.use('/api/users', userRoute);
+
+//routes for products
+app.use('/api/products', productRoute);
 
 
 
