@@ -1,4 +1,3 @@
-import products from "../../../../api/data/Products";
 import {
   PRODUCT_LIST_REQ,
   PRODUCT_LIST_REQ_SUCCESS,
@@ -9,14 +8,17 @@ import {
 } from "../Constants/Product";
 
 //list of products
-export const ProductListReducer = (state = { products: [] }, action) => {
+export const productListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQ:
-      return { loading: true, products: [] };
+      return {
+        loading: true,
+        products: [],
+      };
     case PRODUCT_LIST_REQ_SUCCESS:
       return {
         loading: false,
-        products: action.payload.products,
+        products: action.payload,
         totalPage: action.payload.totalPage,
         page: action.payload.page,
       };
@@ -28,13 +30,16 @@ export const ProductListReducer = (state = { products: [] }, action) => {
 };
 
 //product by id
-export const ProductReducer = (
+export const productReducer = (
   state = { product: { reviews: [] } },
   action
 ) => {
   switch (action.type) {
     case PRODUCT_DETAIL_REQ:
-      return { loading: true, ...state };
+      return {
+        loading: true,
+        ...state,
+      };
     case PRODUCT_DETAIL_REQ_SUCCESS:
       return {
         loading: false,
