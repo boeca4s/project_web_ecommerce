@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { productAction } from "../Redux/Actions/Product";
+import {Link} from "react-router-dom";
 const Products = () => {
   const dispatch = useDispatch();
   const productListReducer = useSelector((state) => state.productListReducer);
-  const { loading, error, products, page, totalPages } = productListReducer;
+  const { loading, error, products = []} = productListReducer;
 
   useEffect(() => {
     dispatch(productAction());
