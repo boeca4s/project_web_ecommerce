@@ -1,4 +1,4 @@
-import Layout from "../Layout/Layouts";
+import Layout from "../Layouts/Layouts";
 
 function ProductDetail() {
   return (
